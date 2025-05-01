@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLEXIWORK</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>FLEXIWORK</h1>
+
+  <div id="main-menu" class="form-container active">
+    <div class="button-group">
+      <button onclick="showSection('select-type')">Registrarse</button>
+      <button onclick="showSection('login')">Iniciar Sesión</button>
+    </div>
+  </div>
+
+  <div id="select-type" class="form-container">
+    <h2>¿Qué perfil deseas crear?</h2>
+    <button onclick="showSection('register-empleado')">Empleado</button>
+    <button onclick="showSection('register-empleador')">Empleador</button>
+    <button onclick="showSection('main-menu')">Regresar</button>
+  </div>
+
+  <div id="register-empleado" class="form-container">
+    <h2>Registro - Empleado</h2>
+    <input type="text" placeholder="Nombre completo">
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+    <input type="text" placeholder="Teléfono">
+    <input type="text" placeholder="Identificación">
+    <button onclick="showSection('login')">Registrarse</button>
+    <button onclick="showSection('select-type')">Regresar</button>
+  </div>
+
+  <div id="register-empleador" class="form-container">
+    <h2>Registro - Empleador</h2>
+    <input type="text" placeholder="Nombre de la empresa">
+    <input type="email" placeholder="Correo Empresarial">
+    <input type="password" placeholder="Contraseña">
+    <input type="text" placeholder="Teléfono">
+    <input type="text" placeholder="NIT">
+    <button onclick="showSection('login')">Registrarse</button>
+    <button onclick="showSection('select-type')">Regresar</button>
+  </div>
+
+  <div id="login" class="form-container">
+    <h2>Iniciar Sesión</h2>
+    <input type="email" placeholder="Correo">
+    <input type="password" placeholder="Contraseña">
+    <button>Ingresar</button>
+    <button onclick="showSection('main-menu')">Regresar</button>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.form-container');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
